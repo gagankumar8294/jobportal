@@ -1,9 +1,14 @@
-const express = require('express');
+import express from 'express';
+import HomepageController from './src/controllers/home.controller.js'
 
 const server = express();
 
-server.get('/', (req, res) => {
-    return res.send('Welcome to "JOB PORTAL');
-})
+const homeController = new HomepageController()
 
-server.listen(3000)
+server.get('/', (req, res) => {
+    return res.send("welcome to Job portal")
+});
+
+server.listen(3000);
+
+console.log("server listening on port 3000 https://localhost:3000");
