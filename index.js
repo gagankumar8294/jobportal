@@ -12,7 +12,7 @@ const homeController = new HomepageController();
 
 const applicantsController = new ApplicantsController();
 
-server.get('/', applicantsController.getApplicants);
+server.get('/applicants', applicantsController.getApplicants);
 server.get('/', homeController.getHomepage);
 server.use(express.static('src/views'))
 server.listen(3000);

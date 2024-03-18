@@ -15,12 +15,12 @@
     <tbody>
         <% applicants.forEach(applicant => { %>
         <tr>
-            <th>1</th>
-            <td>name</td>
-            <td>description</td>
-            <td>mobile number</td>
+            <th><%= applicant.id %></th>
+            <td><%= applicant.name %></td>
+            <td><%= applicant.description %></td>
+            <td><%= applicant.price %></td>
             <td>
-                <img src="http://placehold.it/">
+                <img src="<%= applicant.imageUrl %>">
             </td>
         </tr>
         <% }) %>
