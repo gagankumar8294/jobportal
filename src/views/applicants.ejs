@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="#">Jobs</a>
+            <a href="#">Recruiter</a>
+    </nav>
+    <tbody>
+        <% applicants.forEach(applicant => { %>
+        <tr>
+            <th>1</th>
+            <td>name</td>
+            <td>description</td>
+            <td>mobile number</td>
+            <td>
+                <img src="http://placehold.it/">
+            </td>
+        </tr>
+        <% }) %>
+    </tbody>
+    
+  </body>
+</html>
