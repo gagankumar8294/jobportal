@@ -40,6 +40,14 @@ export default class JobsModel {
         );
         jobs[index] = jobObj;
     }
+
+    // delete
+    static delete(id) {
+        const index = jobs.findIndex(
+            (p) => p.id == id
+        );
+        jobs.splice(index, 1);
+    }
 }
 
 var jobs = [

@@ -45,4 +45,17 @@ export default class ApplicantsController {
         let jobs = JobsModel.get();
         res.render('jobs', {jobs});
     }
+
+    // Delete Job
+    deleteJob(req, res, next) {
+        const id = req.params.id;
+        const jobFound = JobsModel.getById(id);
+        if(!jobFound) {
+            return res.status(401).send('job not found');
+        }
+        
+        JobsModel.delete(id);
+        var jobs = JobsModel.get();
+        res.render('jobs', {jobs});
+    }
 }
