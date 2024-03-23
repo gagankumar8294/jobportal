@@ -1,18 +1,25 @@
 <link rel="stylesheet" href="postjob.css">
 
 <h1>Post a new Job</h1>
+
+<% if(errorMessage){ %>
+  <div class="alert alert-danger role="alert">
+    <%= errorMessage %>
+  </div>
+<% } %>
+
 <div class="postJobFormContainer">
   <form action="/" method="post">
     <div class="form-group">
       <div>
-        <select class="custom-select" name="category" required>
+        <select class="custom-select" name="category" >
           <option value="">Select job catagory</option>
           <option value="Tech">Tech</option>
           <option value="Non Tech">Non Tech</option>
         </select>
       </div>
       <div>
-        <select class="custom-select" name="designation" required>
+        <select class="custom-select" name="designation" >
           <option value="">Select job designation</option>
           <option value="HR">HR</option>
           <option value="SDE">SDE</option>
