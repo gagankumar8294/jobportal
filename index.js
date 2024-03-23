@@ -3,6 +3,8 @@ import HomepageController from "./src/controllers/home.controller.js";
 import ApplicantsController from './src/controllers/applicants.controller.js';
 import path from 'path';
 import expressEjsLayouts from 'express-ejs-layouts';
+import ValidationRequest from './src/middlewares/Validation.middleware.js';
+
 const server = express();
 
 server.use(express.urlencoded({extended: true}));
@@ -18,7 +20,7 @@ const applicantsController = new ApplicantsController();
 server.get('/', homeController.getHomepage);
 server.get('/jobs', applicantsController.renderJobs);
 server.get('/postjob', applicantsController.renderPostJob);
-server.post('/', applicantsController.createPostJob);
+server.post('/',ValidationRequest, applicantsController.createPostJob);
 
 
 server.use(express.static('src/views'))
