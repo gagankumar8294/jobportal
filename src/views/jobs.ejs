@@ -1,0 +1,13 @@
+<tbody class="jobs_container">
+    <% jobs.forEach(job => { %>
+        <div class="job-details"  style="display: inline-block; margin-right: 20px; border: 1px solid black; padding: 10px;">
+            <h2>Id: <%= job.id %></h2>
+            <h2>Category: <%= job.category %></h2>
+            <p><strong>Designation:</strong> <%= job.designation %></p>
+            <p><strong>Location:</strong> <%= job.location %></p>
+            <p><strong>Company:</strong> <%= job.company %></p>
+            <p><strong>LPA:</strong> <%= job.salary %></p>
+            <p><strong>Positions:</strong> <%= job.positions %></p>
+        </div>
+    <% }) %>
+</tbody>

@@ -1,0 +1,22 @@
+
+
+<h1 class="mt-5 mb-4">Jobs Creation</h1>
+<form action="/" method="post">
+    <div class="mb-3">
+        <label for="name" class="form-label">Job Name</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="mb-3">
+        <label for="desc" class="form-label">Job Description</label>
+        <textarea class="form-control" id="description" name="designation" rows="3" required></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="price" class="form-label">Lpa</label>
+        <input type="number" class="form-control" id="price" name="price" step="0.01" min="0" required>
+    </div>
+    <div class="mb-3">
+        <label for="imageUrl" class="form-label">Location</label>
+        <input type="text" class="form-control" id="location" name="location" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Job Opening</button>
+</form>

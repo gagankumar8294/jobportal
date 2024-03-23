@@ -1,11 +1,33 @@
 import path from 'path';
 import ApplicantsModel from '../models/applicants.model.js'
-
+import JobsModel from '../models/jobs.model.js';
 export default class ApplicantsController {
     
-    getApplicants(req, res) {    
-        let applicants = ApplicantsModel.get(); // get function going to return Array of models
-        // console.log(applicants);
-        res.render("applicants", {applicants:applicants})
+    renderApplicantForm(req, res){
+        return res.render('applicants');
+    }
+
+    renderJobs(req, res){
+        var jobs = JobsModel.get();
+        return res.render('jobs', {jobs: jobs});
+    }
+
+    // renderJobsForm(req, res){
+    //     return res.render('jobsForm');
+    // }
+
+    addApplicant(req, res){
+        console.log(req.body);
+    }
+
+    renderPostJob(req, res){
+        return res.render('postjob');
+    }
+
+    createPostJob(req, res){
+        console.log(req.body);
+        JobsModel.add(req.body);
+        let jobs = JobsModel.get();
+        res.render('jobs', {jobs: jobs});
     }
 }

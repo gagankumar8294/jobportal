@@ -1,0 +1,10 @@
+.postJobFormContainer {
+    width: 700px;
+
+    margin: 0 auto;
+}
+
+.salary_div {
+    margin-top: 10px !important;
+    width: 500px;
+}
