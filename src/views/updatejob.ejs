@@ -9,8 +9,8 @@
 <% } %>
 
 <div class="postJobFormContainer">
-  <form action="/" method="post">
-    <input type="hidden" class="form-control" id="name" name="name">
+  <form action="/updatejob/" method="post">
+    <input type="hidden" class="form-control" id="id" name="id" value="<%= job.id %>">
 
     <div class="form-group">
       <div>

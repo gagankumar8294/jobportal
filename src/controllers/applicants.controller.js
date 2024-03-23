@@ -38,4 +38,11 @@ export default class ApplicantsController {
             res.status(401).send("jobs not found");
         }
     }
+
+    // Post Updateed job fields
+    postUpdatedJob(req, res, next) {
+        JobsModel.update(req.body);
+        let jobs = JobsModel.get();
+        res.render('jobs', {jobs});
+    }
 }

@@ -22,7 +22,7 @@ server.get('/jobs', applicantsController.renderJobs);
 server.get('/postjob', applicantsController.renderPostJob);
 server.get('/updatejob/:id', applicantsController.updateJob);
 server.post('/',ValidationRequest, applicantsController.createPostJob);
-
+server.post('/updatejob', applicantsController.postUpdatedJob);
 
 server.use(express.static('src/views'))
 server.listen(3000);

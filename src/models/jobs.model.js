@@ -28,8 +28,17 @@ export default class JobsModel {
         jobs.push(newJob);
     }
 
+    // find the id
     static getById(id) {
         return jobs.find((p) => p.id == id);
+    }
+
+    // update
+    static update(jobObj){
+        const index = jobs.findIndex(
+            (p) => p.id == jobObj.id
+        );
+        jobs[index] = jobObj;
     }
 }
 
