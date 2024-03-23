@@ -20,6 +20,7 @@ const applicantsController = new ApplicantsController();
 server.get('/', homeController.getHomepage);
 server.get('/jobs', applicantsController.renderJobs);
 server.get('/postjob', applicantsController.renderPostJob);
+server.get('/updatejob/:id', applicantsController.updateJob);
 server.post('/',ValidationRequest, applicantsController.createPostJob);
 
 

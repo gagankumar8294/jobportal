@@ -1,20 +1,3 @@
-// Mapping objects for category and designation
-// const categoryMapping = {
-//     1: 'Tech',
-//     2: 'Non Tech'
-// };
-
-// const designationMapping = {
-//     1: 'HR',
-//     2: 'SDE',
-//     3: 'DevOps',
-//     4: 'MERN Developer',
-//     5: 'MEAN Developer',
-//     6: 'JAVA Developer',
-//     7: 'Front-End Developer',
-//     8: 'Back-End Developer',
-//     9: 'Full-Stack Developer'
-// };
 
 export default class JobsModel {
 
@@ -43,6 +26,10 @@ export default class JobsModel {
             jobObj.positions,
             )
         jobs.push(newJob);
+    }
+
+    static getById(id) {
+        return jobs.find((p) => p.id == id);
     }
 }
 

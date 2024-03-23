@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="postjob.css">
+
+<h1>Update Job</h1>
+
+<% if(errorMessage){ %>
+  <div class="alert alert-danger role="alert">
+    <%= errorMessage %>
+  </div>
+<% } %>
+
+<div class="postJobFormContainer">
+  <form action="/" method="post">
+    <input type="hidden" class="form-control" id="name" name="name">
+
+    <div class="form-group">
+      <div>
+        <select class="custom-select" name="category"  value="<%= job.catagory %>">
+          <option value="">Select job catagory</option>
+          <option value="Tech">Tech</option>
+          <option value="Non Tech">Non Tech</option>
+        </select>
+      </div>
+      <div>
+        <select class="custom-select" name="designation"  value="<%= job.designation %>" >
+          <option value="">Select job designation</option>
+          <option value="HR">HR</option>
+          <option value="SDE">SDE</option>
+          <option value="DevOps">DevOps</option>
+          <option value="MERN Developer">MERN Developer</option>
+          <option value="MEAN Developer">MEAN Developer</option>
+          <option value="JAVA Developer">JAVA Developer</option>
+          <option value="Front-End Developer">Front-End Developer</option>
+          <option value="Back-End deeloper">Back-End Developer</option>
+          <option value="Full-Stack Developer">Full-Stack Developer</option>
+        </select>
+      </div>
+      
+      <!-- JOB Location -->
+      <label for="formGroupExampleInput">Enter job Location</label>
+      <input type="text" class="form-control" id="formGroupExampleInput" name="location" value="<%= job.location %>" placeholder="">
+      
+      <!-- Company Name-->
+      
+      <label for="inputEmail3" class="col-sm-2 col-form-label">Company Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="company" name="company"  value="<%= job.company %>" placeholder="">
+      </div>
+
+      <!-- Salary-->
+      <div class="salary_div">
+        <input type="number" class="form-control" id="salary" name="salary" placeholder="enter salary">
+        <label>Total Positions</label>
+        <input type="number" class="form-control" id="positions" name="positions"  value="<%= job.positions %>" placeholder="">
+      </div>
+      
+      
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </div> 
+</form>
+</div>

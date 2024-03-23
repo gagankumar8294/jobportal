@@ -13,6 +13,8 @@ export default class ApplicantsModel {
     static get() {
         return applicants;
     }
+
+    
 }
 
 var applicants = [
