@@ -21,10 +21,11 @@ server.get('/', homeController.getHomepage);
 server.get('/jobs', applicantsController.renderJobs);
 server.get('/postjob', applicantsController.renderPostJob);
 server.get('/updatejob/:id', applicantsController.updateJob);
-server.get('/deletejob/:id', applicantsController.deleteJob);
+server.post('/deletejob/:id', applicantsController.deleteJob);
 server.post('/',ValidationRequest, applicantsController.createPostJob);
 server.post('/updatejob', applicantsController.postUpdatedJob);
 
+server.use(express.static('public'));
 server.use(express.static('src/views'))
 server.listen(3000);
 console.log("server listening on port 3000 http://localhost:3000");

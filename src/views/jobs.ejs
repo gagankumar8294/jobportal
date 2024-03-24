@@ -9,7 +9,8 @@
             <p><strong>LPA:</strong> <%= job.salary %></p>
             <p><strong>Positions:</strong> <%= job.positions %></p>
             <a href="/updatejob/<%= job.id %>" class="btn btn-warning">Update</a>
-            <a href="/deletejob/<%= job.id %>" class="btn btn-danger">Delete</a> 
+            <!-- <a href="/deletejob/<%= job.id %>" class="btn btn-danger">Delete</a> -->
+            <button class="btn btn-danger" onclick="deleteJob('<%=job.id%>')">Delete</button>
         </div>
     <% }) %>
 </tbody>
