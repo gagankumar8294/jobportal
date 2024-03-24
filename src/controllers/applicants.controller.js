@@ -58,4 +58,13 @@ export default class ApplicantsController {
         var jobs = JobsModel.get();
         res.render('jobs', {jobs});
     }
+
+    viewJobDetails(req, res, next) {
+        const id = req.params.id;
+        const job = JobsModel.getById(id);
+        if (!job) {
+            return res.status(404).send('Job not found');
+        }
+        return res.render('job_details', { job });
+    }
 }

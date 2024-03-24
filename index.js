@@ -21,6 +21,7 @@ server.get('/', homeController.getHomepage);
 server.get('/jobs', applicantsController.renderJobs);
 server.get('/postjob', applicantsController.renderPostJob);
 server.get('/updatejob/:id', applicantsController.updateJob);
+server.get('/jobs/:id', applicantsController.viewJobDetails);
 server.post('/deletejob/:id', applicantsController.deleteJob);
 server.post('/',ValidationRequest, applicantsController.createPostJob);
 server.post('/updatejob', applicantsController.postUpdatedJob);
