@@ -4,7 +4,7 @@ import ApplicantsController from './src/controllers/applicants.controller.js';
 import path from 'path';
 import expressEjsLayouts from 'express-ejs-layouts';
 import ValidationRequest from './src/middlewares/Validation.middleware.js';
-
+import { uploadFile } from './src/middlewares/fileUploadMiddleware.js'
 const server = express();
 
 server.use(express.urlencoded({extended: true}));
@@ -25,6 +25,7 @@ server.get('/jobs/:id', applicantsController.viewJobDetails);
 server.post('/deletejob/:id', applicantsController.deleteJob);
 server.post('/',ValidationRequest, applicantsController.createPostJob);
 server.post('/updatejob', applicantsController.postUpdatedJob);
+server.post('/apply', uploadFile.single('resume'), applicantsController.applyToJob);
 
 server.use(express.static('public'));
 server.use(express.static('src/views'))

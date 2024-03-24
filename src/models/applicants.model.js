@@ -13,12 +13,10 @@ export default class ApplicantsModel {
     static get() {
         return applicants;
     }
-
-    
 }
 
 var applicants = [
-    new ApplicantsModel(1, 'capaldi', 'description', 19.99, 'kingdom'),
+    new ApplicantsModel(1, 'capaldi', 'capaldi@gmail.com', 999999999999,),
     new ApplicantsModel(2, 'youon', 'descrip', 19.99, 'manchester'),
     new ApplicantsModel(3, 'gomam', 'miranda', 19.99, 'tokyo'),
     new ApplicantsModel(4, 'frida', 'amanda', 19.99, 'singapore'),

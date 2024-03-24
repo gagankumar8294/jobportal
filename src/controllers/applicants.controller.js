@@ -1,6 +1,7 @@
 import path from 'path';
 import ApplicantsModel from '../models/applicants.model.js'
 import JobsModel from '../models/jobs.model.js';
+import { uploadFile } from '../middlewares/fileUploadMiddleware.js';
 
 export default class ApplicantsController {
 
@@ -66,5 +67,15 @@ export default class ApplicantsController {
             return res.status(404).send('Job not found');
         }
         return res.render('job_details', { job });
+    }
+
+    applyToJob(req, res, next) {
+        // Handle the form submission here, including the file upload
+        // Multer middleware (uploadFile.single('resume')) will handle the file upload
+        console.log('Form data:', req.body);
+        console.log('Uploaded file:', req.file);
+
+        // Redirect or send a response as needed
+        res.send('Application submitted successfully!');
     }
 }
