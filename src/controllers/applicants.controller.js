@@ -1,9 +1,12 @@
-import path from 'path';
-import ApplicantsModel from '../models/applicants.model.js'
+import ApplicantsModel from '../models/user.mode.js';
 import JobsModel from '../models/jobs.model.js';
-import { uploadFile } from '../middlewares/fileUploadMiddleware.js';
 
 export default class ApplicantsController {
+
+
+    getHomepage(req, res) {
+        return res.render('index.ejs');
+    }
 
     // Rendering a JOBS page
     renderJobs(req, res, next){
@@ -78,4 +81,5 @@ export default class ApplicantsController {
         // Redirect or send a response as needed
         res.send('Application submitted successfully!');
     }
+
 }
