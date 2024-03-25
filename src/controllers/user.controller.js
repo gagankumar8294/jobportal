@@ -27,8 +27,8 @@ export default class UserController {
             return res.render('index', {
                 errorMessage: 'Invalid username or password'
             });
-            res.send('Invalid username or password')
         }
+        req.session.useEmail = email;
         var jobs = JobsModel.get();
         res.render('jobs', {jobs});
     }
