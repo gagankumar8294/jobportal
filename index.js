@@ -1,6 +1,6 @@
 import express from 'express';
 import userController from './src/controllers/user.controller.js';
-import ApplicantsController from './src/controllers/applicants.controller.js';
+import JobsController from './src/controllers/jobs.controller.js';
 import path from 'path';
 import expressEjsLayouts from 'express-ejs-layouts';
 import ValidationRequest from './src/middlewares/Validation.middleware.js';
@@ -25,15 +25,15 @@ server.set("views", path.join(path.resolve(),'src','views'))
 server.use(expressEjsLayouts);
 
 
-const applicantsController = new ApplicantsController();
+const jobsController = new JobsController();
 const UserController = new userController();
 
 
-server.get('/', applicantsController.getHomepage);
-server.get('/jobs',auth, applicantsController.renderJobs);
-server.get('/postjob',auth, applicantsController.renderPostJob);
-server.get('/updatejob/:id',auth, applicantsController.updateJob);
-server.get('/jobs/:id',auth, applicantsController.viewJobDetails);
+server.get('/', jobsController.getHomepage);
+server.get('/jobs', jobsController.renderJobs);
+server.get('/postjob', jobsController.renderPostJob);
+server.get('/updatejob/:id',auth, jobsController.updateJob);
+server.get('/jobs/:id', jobsController.viewJobDetails);
 
 server.get('/register', UserController.getRegister);
 server.get('/login', UserController.getLogin);
@@ -41,10 +41,10 @@ server.get('/login', UserController.getLogin);
 
 server.post('/register', UserController.postRegister);
 server.post('/login', UserController.postLogin);
-server.post('/deletejob/:id',auth, applicantsController.deleteJob);
-server.post('/',auth,ValidationRequest, applicantsController.createPostJob);
-server.post('/updatejob',auth, applicantsController.postUpdatedJob);
-server.post('/apply',auth, uploadFile.single('resume'), applicantsController.applyToJob);
+server.post('/deletejob/:id',auth,jobsController.deleteJob);
+server.post('/',auth,ValidationRequest, jobsController.createPostJob);
+server.post('/updatejob',auth, jobsController.postUpdatedJob);
+server.post('/apply', uploadFile.single('resume'), jobsController.applyToJob);
 
 
 server.use(express.static('public'));

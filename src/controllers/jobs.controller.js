@@ -1,4 +1,4 @@
-import ApplicantsModel from '../models/user.mode.js';
+import ApplicantsModel from '../models/user.model.js';
 import JobsModel from '../models/jobs.model.js';
 
 export default class ApplicantsController {

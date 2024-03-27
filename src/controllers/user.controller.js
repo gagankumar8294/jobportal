@@ -1,4 +1,4 @@
-import UserModel from "../models/user.mode.js";
+import UserModel from "../models/user.model.js";
 import JobsModel from "../models/jobs.model.js";
 export default class UserController {
 

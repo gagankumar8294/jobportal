@@ -8,6 +8,6 @@ function deleteJob(id) {
             if(res.ok){
                 location.reload();
             }
-        })
+        });
     }
 }
