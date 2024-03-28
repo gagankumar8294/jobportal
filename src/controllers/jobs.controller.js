@@ -52,9 +52,9 @@ export default class ApplicantsController {
 
     // Delete Job
     deleteJob(req, res, next) {
-        // const id = req.params.id;
+        const id = req.params.id;
         
-        const jobFound = JobsModel.delete(id);
+        const jobFound = JobsModel.getById(id);
         if(!jobFound) {
             return res.status(401).send('job not found');
         }

@@ -16,7 +16,7 @@ export default class UserController {
         UserModel.add(name, email, password); // want to add validations
         return res.render('login', { errorMessage: null }); // not gonna impact 'return'
     }
-
+ 
     postLogin(req, res){
         const{email, password} = req.body;
         const user = UserModel.isValidUser(
@@ -24,12 +24,12 @@ export default class UserController {
             password
         );
         if (!user) {
-            return res.render('index', {
+            return res.render('login', {
                 errorMessage: 'Invalid username or password'
             });
-        }
-        req.session.useEmail = email;
+        } 
+        // req.session.useEmail = email;
         var jobs = JobsModel.get();
-        res.render('jobs', {jobs});
+        return res.render('jobs', {jobs});
     }
 }

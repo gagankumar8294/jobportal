@@ -32,7 +32,7 @@ const ApplicantsController = new applicantsController();
 
 server.get('/', JobsController.getHomepage);
 server.get('/jobs', JobsController.renderJobs);
-server.get('/postjob',auth, JobsController.renderPostJob);
+server.get('/postjob', JobsController.renderPostJob);
 server.get('/updatejob/:id', JobsController.updateJob);
 server.get('/jobs/:id', JobsController.viewJobDetails);
 
