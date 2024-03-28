@@ -37,7 +37,7 @@ server.get('/updatejob/:id',auth, JobsController.updateJob);
 server.get('/jobs/:id', JobsController.viewJobDetails);
 
 server.get('/applicants', ApplicantsController.getApplicants);
-server.post('/jobs/:id', ApplicantsController.addApplicants);
+server.post('/jobs/:id',auth, ApplicantsController.addApplicants);
 
 
 server.get('/register', UserController.getRegister);

@@ -30,6 +30,6 @@ export default class UserController {
         } 
         req.session.userEmail = email;
         var jobs = JobsModel.get();
-        return res.render('jobs', {jobs});
+        return res.render('jobs', {jobs ,  userEmail: req.session.userEmail });
     }
 }

@@ -5,18 +5,18 @@ export default class ApplicantsController {
 
 
     getHomepage(req, res) {
-        return res.render('index.ejs');
+        return res.render('index.ejs' , { userEmail: req.session.userEmail });
     }
 
     // Rendering a JOBS page
     renderJobs(req, res, next){
         var jobs = JobsModel.get();
-        return res.render('jobs', {jobs: jobs});
+        return res.render('jobs', {jobs: jobs ,  userEmail: req.session.userEmail });
     }
 
     // To dsplay the CREATE JOB FORM
     renderPostJob(req, res, next){
-        return res.render('postjob', {errorMessage: null,});
+        return res.render('postjob', {errorMessage: null,  userEmail: req.session.userEmail });
     }
 
     // after Posting a Job REDIRECT to JOBS Page
@@ -24,7 +24,7 @@ export default class ApplicantsController {
         console.log(req.body);
         JobsModel.add(req.body);
         let jobs = JobsModel.get();
-        res.render('jobs', {jobs: jobs});
+        res.render('jobs', {jobs: jobs ,  userEmail: req.session.userEmail });
     }
 
     // Update Job
@@ -36,6 +36,7 @@ export default class ApplicantsController {
             res.render('updatejob', {
                 job: jobFound,
                 errorMessage: null,
+                 userEmail: req.session.userEmail 
             });
         }
         else {
@@ -47,7 +48,7 @@ export default class ApplicantsController {
     postUpdatedJob(req, res, next) {
         JobsModel.update(req.body);
         let jobs = JobsModel.get();
-        res.render('jobs', {jobs});
+        res.render('jobs', {jobs ,  userEmail: req.session.userEmail });
     }
 
     // Delete Job
@@ -61,7 +62,7 @@ export default class ApplicantsController {
         
         JobsModel.delete(id);
         var jobs = JobsModel.get();
-        res.render('jobs', {jobs});
+        res.render('jobs', {jobs ,  userEmail: req.session.userEmail });
     }
 
     viewJobDetails(req, res, next) {
@@ -70,7 +71,7 @@ export default class ApplicantsController {
         if (!job) {
             return res.status(404).send('Job not found');
         }
-        return res.render('job_details', { job });
+        return res.render('job_details', { job ,  userEmail: req.session.userEmail  });
     }
 
     applyToJob(req, res, next) {
@@ -82,6 +83,6 @@ export default class ApplicantsController {
         // Redirect or send a response as needed
         // var jobs = JobsModel.get();
         // res.render('jobs' , {jobs});   // either way works
-        res.redirect('/jobs');
+        res.redirect('/jobs' , { userEmail: req.session.userEmail });
     }
 }
