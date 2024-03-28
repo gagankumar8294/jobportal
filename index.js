@@ -42,7 +42,7 @@ server.post('/jobs/:id',auth, ApplicantsController.addApplicants);
 
 server.get('/register', UserController.getRegister);
 server.get('/login', UserController.getLogin);
-
+server.get('/logout', UserController.logout);
 
 server.post('/register', UserController.postRegister);
 server.post('/login', UserController.postLogin);
