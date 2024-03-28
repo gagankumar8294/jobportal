@@ -52,8 +52,9 @@ export default class ApplicantsController {
 
     // Delete Job
     deleteJob(req, res, next) {
-        const id = req.params.id;
-        const jobFound = JobsModel.getById(id);
+        // const id = req.params.id;
+        
+        const jobFound = JobsModel.delete(id);
         if(!jobFound) {
             return res.status(401).send('job not found');
         }
@@ -79,7 +80,8 @@ export default class ApplicantsController {
         console.log('Uploaded file:', req.file);
 
         // Redirect or send a response as needed
-        res.send('Application submitted successfully!');
+        // var jobs = JobsModel.get();
+        // res.render('jobs' , {jobs});   // either way works
+        res.redirect('/jobs');
     }
-
 }
