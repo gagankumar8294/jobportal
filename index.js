@@ -32,8 +32,8 @@ const ApplicantsController = new applicantsController();
 
 server.get('/', JobsController.getHomepage);
 server.get('/jobs', JobsController.renderJobs);
-server.get('/postjob', JobsController.renderPostJob);
-server.get('/updatejob/:id', JobsController.updateJob);
+server.get('/postjob',auth, JobsController.renderPostJob);
+server.get('/updatejob/:id',auth, JobsController.updateJob);
 server.get('/jobs/:id', JobsController.viewJobDetails);
 
 server.get('/applicants', ApplicantsController.getApplicants);
@@ -46,9 +46,9 @@ server.get('/login', UserController.getLogin);
 
 server.post('/register', UserController.postRegister);
 server.post('/login', UserController.postLogin);
-server.post('/deletejob/:id', JobsController.deleteJob);
+server.post('/deletejob/:id',auth, JobsController.deleteJob);
 server.post('/',auth,ValidationRequest, JobsController.createPostJob);
-server.post('/updatejob',JobsController.postUpdatedJob);
+server.post('/updatejob',auth,JobsController.postUpdatedJob);
 server.post('/apply', uploadFile.single('resume'), JobsController.applyToJob);
 
 server.use(express.static('public'));

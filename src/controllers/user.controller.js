@@ -28,7 +28,7 @@ export default class UserController {
                 errorMessage: 'Invalid username or password'
             });
         } 
-        // req.session.useEmail = email;
+        req.session.userEmail = email;
         var jobs = JobsModel.get();
         return res.render('jobs', {jobs});
     }
