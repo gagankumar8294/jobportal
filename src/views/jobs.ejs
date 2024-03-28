@@ -8,10 +8,17 @@
             <p><strong>Company:</strong> <%= job.company %></p>
             <p><strong>LPA:</strong> <%= job.salary %></p>
             <p><strong>Positions:</strong> <%= job.positions %></p>
-            <a href="/jobs/<%= job.id %>" class="btn btn-primary">View</a>
-            <a href="/updatejob/<%= job.id %>" class="btn btn-warning">Update</a>
+            
+            
 
-            <button class="btn btn-danger" onclick="deleteJob('<%=job.id%>')">Delete</button>
+
+            <% if(locals.userEmail){%>
+                <a href="/updatejob/<%= job.id %>" class="btn btn-warning">Update</a>
+                <button class="btn btn-danger" onclick="deleteJob('<%=job.id%>')">Delete</button>
+            <%} else{%>
+                <a href="/jobs/<%= job.id %>" class="btn btn-primary">View</a>
+          <%}%>
+
         </div>
     <% }) %>
 </tbody>
