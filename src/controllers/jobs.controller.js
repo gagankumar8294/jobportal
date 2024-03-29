@@ -1,5 +1,6 @@
 import ApplicantsModel from '../models/user.model.js';
 import JobsModel from '../models/jobs.model.js';
+import { sendConfirmationEmail } from '../middlewares/emailService.js';
 
 export default class ApplicantsController {
 
@@ -75,14 +76,19 @@ export default class ApplicantsController {
     }
 
     applyToJob(req, res, next) {
-        // Handle the form submission here, including the file upload
-        // Multer middleware (uploadFile.single('resume')) will handle the file upload
+        const { id, email } = req.body;
+        const jobFound = JobsModel.getById(id);
+        console.log(req.body)
+        console.log(req.file);
         console.log('Form data:', req.body);
         console.log('Uploaded file:', req.file);
-
-        // Redirect or send a response as needed
-        // var jobs = JobsModel.get();
-        // res.render('jobs' , {jobs});   // either way works
-        res.redirect('/jobs' , { userEmail: req.session.userEmail });
+        if(jobFound) {
+            var jobs = JobsModel.get();
+            res.render('jobs', { jobs : jobs});
+            sendConfirmationEmail(email);
+            next();
+        }else {
+            res.status(401).send('Produt not found');
+        }
     }
 }

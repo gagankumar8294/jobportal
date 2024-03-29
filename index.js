@@ -38,7 +38,7 @@ server.get('/jobs/:id', JobsController.viewJobDetails);
 // server.get('/updatejob',auth, JobsController.updateJob);
 
 server.get('/applicants', ApplicantsController.getApplicants);
-server.post('/jobs/:id',auth, ApplicantsController.addApplicants);
+server.post('/jobs/:id', ApplicantsController.addApplicants);
 
 
 server.get('/register', UserController.getRegister);
@@ -50,7 +50,7 @@ server.post('/login', UserController.postLogin);
 server.post('/deletejob/:id',auth, JobsController.deleteJob);
 server.post('/',auth,ValidationRequest, JobsController.createPostJob);
 server.post('/updatejob',auth,JobsController.postUpdatedJob);
-server.post('/apply', uploadFile.single('resume'), JobsController.applyToJob);
+server.post('/applicants', uploadFile.single('resume'), JobsController.applyToJob);
 
 server.use(express.static('public'));
 server.use(express.static('src/views'))
