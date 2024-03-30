@@ -68,6 +68,7 @@ export default class ApplicantsController {
 
     viewJobDetails(req, res, next) {
         const id = req.params.id;
+        console.log(id);
         const job = JobsModel.getById(id);
         if (!job) {
             return res.status(404).send('Job not found');
@@ -76,19 +77,40 @@ export default class ApplicantsController {
     }
 
     applyToJob(req, res, next) {
-        const { id, email } = req.body;
+        const { id, name, email } = req.body;
+        console.log(id);
+        const resume = req.file
         const jobFound = JobsModel.getById(id);
-        console.log(req.body)
-        console.log(req.file);
-        console.log('Form data:', req.body);
-        console.log('Uploaded file:', req.file);
+        // console logs
+        // console.log(req.body)
+        // console.log(req.file);
+        // console.log('Form data:', req.body);
+        // console.log('Uploaded file:', req.file);
+        
         if(jobFound) {
+            JobsModel.addApplicant(id,name,email,resume);
             var jobs = JobsModel.get();
             res.render('jobs', { jobs : jobs});
             sendConfirmationEmail(email);
             next();
         }else {
             res.status(401).send('Produt not found');
+        }
+    }
+
+    viewApplicants(req, res){
+        const id = req.params.id;
+        const jobFound = JobsModel.getById(id);
+        if(jobFound) {
+            console.log(jobFound.applicants);
+            res.render('applicants', {
+                job: jobFound,
+                errorMessage: null,
+                 userEmail: req.session.userEmail 
+            });
+        }
+        else {
+            res.status(401).send("jobs not found");
         }
     }
 }

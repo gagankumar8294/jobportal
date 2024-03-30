@@ -2,13 +2,14 @@
 export default class JobsModel {
 
     constructor(_id,_category, _designation, _location, _company, _salary, _positions){
-        this.id = _id
-        this.category = _category
-        this.designation = _designation
-        this.location = _location
-        this.company = _company
-        this.salary = _salary
-        this.positions = _positions
+        this.id = _id;
+        this.category = _category;
+        this.designation = _designation;
+        this.location = _location;
+        this.company = _company;
+        this.salary = _salary;
+        this.positions = _positions;
+        this.applicants = [];
     }
 
     static get() {
@@ -26,6 +27,27 @@ export default class JobsModel {
             jobObj.positions,
             )
         jobs.push(newJob);
+        // Initialize the applicants array only for the specific job ID
+    if (newJob.id === jobId) {
+        newJob.applicants = [];
+    }
+
+    jobs.push(newJob);
+    }
+
+    static addApplicant(jobId, id, name, email, resume) {
+        // Find the job with the matching ID
+        const job = jobs.find(job => job.id === jobId);
+    
+        // If job exists, add the applicant with specific fields
+        if (job) {
+            job.applicants.push({ 
+                id: id, 
+                name: name, 
+                email: email, 
+                resume: resume 
+            });
+        }
     }
 
     // find the id

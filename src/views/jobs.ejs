@@ -17,6 +17,7 @@
                 <button class="btn btn-danger" onclick="deleteJob('<%=job.id%>')">Delete</button>
             <%} else{%>
                 <a href="/jobs/<%= job.id %>" class="btn btn-primary">View</a>
+                <a href="/jobs/applicants/<%= job.id %>" class="btn btn-primary">View Applicants</a>
           <%}%>
 
         </div>

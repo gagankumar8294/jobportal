@@ -7,7 +7,6 @@ import ValidationRequest from './src/middlewares/Validation.middleware.js';
 import { uploadFile } from './src/middlewares/fileUploadMiddleware.js'
 import session from 'express-session';
 import { auth } from './src/middlewares/auth.middleware.js';
-import applicantsController from './src/controllers/applicants.controller.js'
 
 const server = express();
 
@@ -28,17 +27,16 @@ server.use(expressEjsLayouts);
 
 const JobsController = new jobsController();
 const UserController = new userController();
-const ApplicantsController = new applicantsController();
 
 server.get('/', JobsController.getHomepage);
 server.get('/jobs', JobsController.renderJobs);
 server.get('/postjob',auth, JobsController.renderPostJob);
 server.get('/updatejob/:id',auth, JobsController.updateJob);
 server.get('/jobs/:id', JobsController.viewJobDetails);
+server.get('/jobs/applicants/:id', JobsController.viewApplicants);
 // server.get('/updatejob',auth, JobsController.updateJob);
 
-server.get('/applicants', ApplicantsController.getApplicants);
-server.post('/jobs/:id', ApplicantsController.addApplicants);
+// server.post('/jobs/:id', JobsController.addApplicants);
 
 
 server.get('/register', UserController.getRegister);

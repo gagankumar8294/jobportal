@@ -9,18 +9,14 @@
 
                 </tr>
             </thead>
-            <tbody>
-              
-                <% applicant.forEach(applicant=>{ %>
-                   
+            <tbody class="jobs_container">
+                <% job.applicants.forEach(applicant => { %>
                     <tr>
-                    <th><%= applicant.id %></th>
-                    <td><%= applicant.name %></td>
-                    <td><%= applicant.email %></td>
-                    <td scope="col"><%= applicant.resume %></td>
-                    
-                   </tr> 
+                        <th><%= applicant.id %></th>
+                        <td><%= applicant.name %></td>
+                        <td><%= applicant.email %></td>
+                        <td><%= applicant.resume %></td>
+                    </tr>
                 <% }) %>
-                
             </tbody>
         </table>
