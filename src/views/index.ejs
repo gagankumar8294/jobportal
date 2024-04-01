@@ -1,11 +1,21 @@
-    <div class="homepage_text">
+<% if(locals.lastVisit) { %>
+<div class="alert alert-primary" role="alert">
+    Your Last Visit was on : <%= locals.lastVisit %>
+</div>
+<% } %>
+
+<div class="homepage_text">
         <h2> A Job Portal web application</h2>
         <p>
             Built using vbackend tools , express ,nodejs 
-        </p>.getApplication<div class="cta-buttons">
-            <!-- <button class="job-seeker-btn" href="/jobs">I'm a job seeker</button>
-            <button class="recruiter-btn">I'm a recruiter</button> -->
-            <a href="/jobs">i'm a job seekar</a>
-            <a href="/jobs/applicants"> applicants Details</a>
+        </p>
+        
+        <div class="cta-buttons d-flex justify-content-between">
+            <form action="/jobs" method="get">
+                <button type="submit" class="btn btn-primary jobseeker">I'm a job seeker</button>
+            </form>
+            <form action="/register" method="get">
+                <button type="submit" class="btn btn-primary recruiter">i'm a Rectuiter</button>
+            </form>
         </div>
     </div>

@@ -28,3 +28,11 @@ body {
     margin-top: 40px;
     font-size: large;
 }
+
+.recruiter {
+    margin-left: -400px ;
+}
+
+.jobseeker {
+    margin-left: -200px;
+}

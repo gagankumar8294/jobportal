@@ -15,9 +15,10 @@
             <% if(locals.userEmail){%>
                 <a href="/updatejob/<%= job.id %>" class="btn btn-warning">Update</a>
                 <button class="btn btn-danger" onclick="deleteJob('<%=job.id%>')">Delete</button>
+                <a href="/jobs/applicants/<%= job.id %>" class="btn btn-primary">View Applicants</a>
             <%} else{%>
                 <a href="/jobs/<%= job.id %>" class="btn btn-primary">View</a>
-                <a href="/jobs/applicants/<%= job.id %>" class="btn btn-primary">View Applicants</a>
+                
           <%}%>
 
         </div>

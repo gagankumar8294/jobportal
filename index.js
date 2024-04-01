@@ -7,8 +7,13 @@ import ValidationRequest from './src/middlewares/Validation.middleware.js';
 import { uploadFile } from './src/middlewares/fileUploadMiddleware.js'
 import session from 'express-session';
 import { auth } from './src/middlewares/auth.middleware.js';
+import cookieParser from 'cookie-parser';
+import { setLastVisit } from './src/middlewares/lastVisit.middleware.js';
 
 const server = express();
+
+server.use(cookieParser());
+server.use(setLastVisit);
 
 // session 
 server.use(session({

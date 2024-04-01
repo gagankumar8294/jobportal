@@ -1,21 +1,26 @@
-
-<h1 class="mt-5 mb-4 header">Login</h1>
-
-<% if(errorMessage){ %>
-    <div class="alert alert-danger" role="alert">
-        <%= errorMessage %>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="mt-5 mb-4 header text-center">Login</h1>
+            <% if(errorMessage){ %>
+                <div class="alert alert-danger" role="alert">
+                    <%= errorMessage %>
+                </div>
+            <% } %>
+            <form action="/login" method="post">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" name="email">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+            <div class="text-center mt-3">
+                <p>New user? <a href="/register" class="btn btn-outline-warning">Register</a></p>
+            </div>
+        </div>
     </div>
-<%} %>
-
-<form action="/login" method="post">
-   
-    <div class="mb-3">
-        <label for="email" class="form-label">Email Address</label>
-        <input type="email" class="form-control" id="email" name="email">
-    </div>
-    <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" name="password">
-    </div>
-    <button type="submit" class="btn btn-primary">Login</button>
-</form>
+</div>
