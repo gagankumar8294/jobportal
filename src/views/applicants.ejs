@@ -15,7 +15,11 @@
                         <th><%= applicant.id %></th>
                         <td><%= applicant.name %></td>
                         <td><%= applicant.email %></td>
-                        <td><%= applicant.resume %></td>
+                        <% if (applicant.resume && applicant.resume.filename) { %>
+                            <td><a href="/resume/<%= applicant.resume.filename %>">Download Resume</a></td>
+                        <% } else { %>
+                            <td>No resume uploaded</td>
+                        <% } %>
                     </tr>
                 <% }) %>
             </tbody>

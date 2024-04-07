@@ -16,6 +16,10 @@ export default class JobsModel {
         return jobs;
     }
 
+    static getJobIDApplicants(id) {
+        return jobs.find(job => job.id === parseInt(id));
+    }
+
     static add(jobObj){
         let newJob = new JobsModel(
             jobs.length + 1,
