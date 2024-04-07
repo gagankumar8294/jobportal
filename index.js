@@ -39,6 +39,8 @@ server.get('/postjob',auth, JobsController.renderPostJob);
 server.get('/updatejob/:id',auth, JobsController.updateJob);
 server.get('/jobs/:id', JobsController.viewJobDetails);
 server.get('/jobs/applicants/:id', JobsController.viewApplicants);
+
+// server.get('/applican', JobsController.returnApplicants);
 // server.get('/updatejob',auth, JobsController.updateJob);
 
 // server.post('/jobs/:id', JobsController.addApplicants);
@@ -47,6 +49,9 @@ server.get('/jobs/applicants/:id', JobsController.viewApplicants);
 server.get('/register', UserController.getRegister);
 server.get('/login', UserController.getLogin);
 server.get('/logout', UserController.logout);
+server.get('/applican', JobsController.returnApplicants);
+
+
 
 server.post('/register', UserController.postRegister);
 server.post('/login', UserController.postLogin);

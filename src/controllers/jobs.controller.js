@@ -68,7 +68,7 @@ export default class ApplicantsController {
 
     viewJobDetails(req, res, next) {
         const id = req.params.id;
-        console.log(id);
+        // console.log(id);
         const job = JobsModel.getById(id);
         if (!job) {
             return res.status(404).send('Job not found');
@@ -77,15 +77,11 @@ export default class ApplicantsController {
     }
 
     applyToJob(req, res, next) {
+        
         const { id, name, email } = req.body;
-        console.log(id);
+        console.log(id, name, email);
         const resume = req.file
         const jobFound = JobsModel.getById(id);
-        // console logs
-        // console.log(req.body)
-        // console.log(req.file);
-        // console.log('Form data:', req.body);
-        // console.log('Uploaded file:', req.file);
         
         if(jobFound) {
             JobsModel.addApplicant(id,name,email,resume);
@@ -112,5 +108,10 @@ export default class ApplicantsController {
         else {
             res.status(401).send("jobs not found");
         }
+    }
+
+    returnApplicants(req, res) {
+        const applicants = JobsModel.get();
+        return res.send(applicants);
     }
 }
