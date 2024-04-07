@@ -4,7 +4,6 @@ import { sendConfirmationEmail } from '../middlewares/emailService.js';
 
 export default class ApplicantsController {
 
-
     getHomepage(req, res) {
         return res.render('index.ejs' , { userEmail: req.session.userEmail });
     }

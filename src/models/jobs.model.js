@@ -27,22 +27,13 @@ export default class JobsModel {
             jobObj.positions,
             )
         jobs.push(newJob);
-        // Initialize the applicants array only for the specific job ID
-    // if (newJob.id === jobId) {
-    //     newJob.applicants = [];
-    // }
-
-    // jobs.push(newJob);
     }
 
-    
-
     static addApplicant(id, name, email, resume) {
-        // Find the job with the matching ID
         const job = jobs.find(
-            (j) => j.id == id);
-    
-        // If job exists, add the applicant with specific fields
+            (j) => j.id == id
+        );
+
         if (!job) {
             return "job not found";
         }else {
@@ -54,7 +45,6 @@ export default class JobsModel {
                 resume: resume 
             });
         }
-        
     }
 
     // find the id
