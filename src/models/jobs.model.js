@@ -16,6 +16,10 @@ export default class JobsModel {
         return jobs;
     }
 
+    static getJobIDApplicants(id) {
+        return jobs.find(job => job.id === parseInt(id));
+    }
+
     static add(jobObj){
         let newJob = new JobsModel(
             jobs.length + 1,
@@ -29,7 +33,7 @@ export default class JobsModel {
         jobs.push(newJob);
     }
 
-    static addApplicant(id, name, email, resume) {
+    static addApplicant(id, name, email,contact, resume) {
         const job = jobs.find(
             (j) => j.id == id
         );
@@ -42,6 +46,7 @@ export default class JobsModel {
                 id: newApplicant, 
                 name: name, 
                 email: email, 
+                contact: contact,
                 resume: resume 
             });
         }
@@ -70,7 +75,7 @@ export default class JobsModel {
 }
 
 var jobs = [
-    new JobsModel(1, 'Mern', 'HR', 'america','google', 199999, 1),
-    new JobsModel(2, 'SDE', 'Employee', 'wall street','alphabet',20000, 2),
-    new JobsModel(3, 'FullStack', 'TEAm Leader', 'tokyo','coding ninja',50000000,3),
+    new JobsModel(1, 'Mern', 'HR', 'america','google', 19999999, 10),
+    new JobsModel(2, 'SDE', 'Employee', 'wall street','alphabet',2000000, 20),
+    new JobsModel(3, 'FullStack', 'TEAm Leader', 'tokyo','coding ninja',50000000,30),
 ]

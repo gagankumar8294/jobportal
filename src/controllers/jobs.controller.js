@@ -77,13 +77,13 @@ export default class ApplicantsController {
 
     applyToJob(req, res, next) {
         
-        const { id, name, email } = req.body;
+        const { id, name,contact, email } = req.body;
         console.log(id, name, email);
         const resume = req.file
         const jobFound = JobsModel.getById(id);
         
         if(jobFound) {
-            JobsModel.addApplicant(id,name,email,resume);
+            JobsModel.addApplicant(id,name,email,contact,resume);
             var jobs = JobsModel.get();
             res.render('jobs', { jobs : jobs});
             sendConfirmationEmail(email);
@@ -95,9 +95,9 @@ export default class ApplicantsController {
 
     viewApplicants(req, res){
         const id = req.params.id;
-        const jobFound = JobsModel.getById(id);
+        const jobFound = JobsModel.getJobIDApplicants(id);
         if(jobFound) {
-            console.log(jobFound.applicants);
+            // console.log(jobFound.applicants);
             res.render('applicants', {
                 job: jobFound,
                 errorMessage: null,

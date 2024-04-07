@@ -7,22 +7,22 @@
     <style>
         /* Modal styles */
         .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
+            display: none;
+            position: fixed; 
+            z-index: 1;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4); 
         }
         .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto; /* 15% from the top and centered */
+            background-color: #f6f6f6;
+            margin: 15% auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 80%; /* Could be more or less, depending on screen size */
+            width: 50%;
         }
         .close {
             color: #aaa;
@@ -36,11 +36,25 @@
             text-decoration: none;
             cursor: pointer;
         }
+
+        .job_details_list {
+            text-align: center;
+            border: 1px solid #888;
+            margin: 10% auto;
+            width: 50%;
+            background-color: aqua;
+            padding-bottom: 20px;
+        }
+
+        .job_details_body {
+            background-color: #2F5E5E;
+        }
     </style>
 </head>
-<body>
-    <h1>Job Details</h1>
-    <div>
+<body class="job_details_body">
+    
+    <div class="job_details_list">
+        <h1>Job Details</h1>
         <p><strong>ID:</strong> <%= job.id %></p>
         <p><strong>Category:</strong> <%= job.category %></p>
         <p><strong>Designation:</strong> <%= job.designation %></p>
@@ -48,12 +62,12 @@
         <p><strong>Company:</strong> <%= job.company %></p>
         <p><strong>LPA:</strong> <%= job.salary %></p>
         <p><strong>Positions:</strong> <%= job.positions %></p>
+    <button class="btn btn-warning" id="applyNowBtn">Apply Now</button>
     </div>
 
 
 
-    <!-- Button to trigger the modal -->
-    <button id="applyNowBtn">Apply Now</button>
+    
 
     <!-- Modal -->
     <div id="myModal" class="modal">
@@ -65,9 +79,12 @@
                 <input type="text" id="name" name="name" required><br>
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required><br>
-                <label for="resume">Resume (PDF only):</label>
+                <label for="contact">Contact</label>
+                <input type="number" class="form-control" id="contact" name="contact" step="0.01" min="0" required>
+                <label for="resume">Resume</label>
                 <input type="file" id="resume" name="resume" accept=".pdf" required><br>
-                <button type="submit">Submit</button>
+          
+                <button class="btn btn-warning" itype="submit">Submit</button>
             </form>
         </div>
     </div>
