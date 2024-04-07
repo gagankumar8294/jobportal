@@ -1,26 +1,30 @@
-<h1 class="mt-5 mb-4 header">Products</h1>
-        <table class="table table-dark">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Resume</th>
 
-                </tr>
-            </thead>
-            <tbody class="jobs_container">
-                <% job.applicants.forEach(applicant => { %>
+    <h1 class="mt-5 mb-4 header">Products</h1>
+            <table class="table table-dark">
+                <thead>
                     <tr>
-                        <th><%= applicant.id %></th>
-                        <td><%= applicant.name %></td>
-                        <td><%= applicant.email %></td>
-                        <% if (applicant.resume && applicant.resume.filename) { %>
-                            <td><a href="/resume/<%= applicant.resume.filename %>">Download Resume</a></td>
-                        <% } else { %>
-                            <td>No resume uploaded</td>
-                        <% } %>
+                        <th scope="col">applicantid</th>
+                        <th scope="col">name</th>
+                        <th scope="col">email</th>
+                        <th scope="col">contact</th>
+                        <th scope="col">resumePath</th>
+
                     </tr>
-                <% }) %>
-            </tbody>
-        </table>
+                </thead>
+                <tbody class="jobs_container">
+                    <% job.applicants.forEach(applicant => { %>
+                        <tr>
+                            <th><%= applicant.id %></th>
+                            <td><%= applicant.name %></td>
+                            <td><%= applicant.email %></td>
+                            <td><%= applicant.contact %></td>
+                            <% if (applicant.resume && applicant.resume.filename) { %>
+                                <td><button class="btn btn-warning" onclick="window.location.href='/resume/<%= applicant.resume.filename %>'">Resume</button></td>
+                            <% } else { %>
+                                <td>No resume uploaded</td>
+                            <% } %>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+
