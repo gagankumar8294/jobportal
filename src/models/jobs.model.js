@@ -48,7 +48,7 @@ export default class JobsModel {
         }else {
             const newApplicantId = job.applicants.length + 1;
             job.applicants.push({
-                id: newApplicantId, 
+                id: newApplicant, 
                 name: name, 
                 email: email, 
                 resume: resume 
